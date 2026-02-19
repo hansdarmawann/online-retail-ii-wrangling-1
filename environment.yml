@@ -71,4 +71,5 @@ dependencies:
       - pyxlsb==1.0.10
       - seaborn==0.13.2
       - tzdata==2025.3
+      - zstandard==0.25.0
 prefix: C:\Users\U2\miniconda3\envs\orw-1
