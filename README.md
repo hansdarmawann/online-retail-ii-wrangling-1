@@ -3,7 +3,6 @@ Online Retail II Data Wrangling
 
 Dataset Reference: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 
-```md
 ## Data Specification
 
 | Column | Description | Sample |
@@ -31,4 +30,3 @@ Dataset Reference: https://archive.ics.uci.edu/dataset/502/online+retail+ii
 | **IsCanceled** | Flag boolean yang menunjukkan transaksi pembatalan, umumnya berdasarkan InvoiceID yang diawali huruf “C”. | False |
 | **IsAdjusted** | Flag boolean yang menandakan baris transaksi merupakan hasil penyesuaian atau koreksi data. | False |
 | **TotalPrice** | Nilai total baris transaksi yang merupakan hasil perkalian Quantity dan Price. | 15.30 |
-```
