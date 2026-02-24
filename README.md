@@ -126,7 +126,7 @@ online-retail-ii-cleaned.csv.zstd
 | IsQuantityOutlier     | Outlier Quantity           |
 | IsPriceOutlier        | Outlier Price              |
 
-# 🚀 **Future Proyeks**
+# 🚀 **Pengembangan Lebih Lanjut**
 
 Dataset hasil wrangling ini dapat digunakan untuk:
 
