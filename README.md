@@ -15,8 +15,6 @@ online-retail-ii-wrangling-1/
 │
 ├── environment.yml                              # Environment dependencies (conda)
 ├── README.md                                    # Dokumentasi project
-│
-└── .git/                                        # Git version control
 ```
 
 ## 📌 **Overview**
