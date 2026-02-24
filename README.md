@@ -2,6 +2,7 @@
 
 ## **Struktur Proyek**
 
+```
 online-retail-ii-wrangling-1/
 │
 ├── datasets/
@@ -16,6 +17,7 @@ online-retail-ii-wrangling-1/
 ├── README.md                                    # Dokumentasi project
 │
 └── .git/                                        # Git version control
+```
 
 ## 📌 **Overview**
 
