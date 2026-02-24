@@ -1,32 +1,156 @@
-# online-retail-ii-wrangling-1
-Online Retail II Data Wrangling
+# 🧹 Online Retail II Data Wrangling Case Study: From Messy Transactions to Data Gold
 
-Dataset Reference: https://archive.ics.uci.edu/dataset/502/online+retail+ii
+## **Struktur Proyek**
 
-## Data Specification
+online-retail-ii-wrangling-1/
+│
+├── datasets/
+│   ├── online_retail_ii_2009-2010.csv.zstd      # Raw dataset (2009–2010)
+│   ├── online_retail_ii_2010-2011.csv.zstd      # Raw dataset (2010–2011)
+│   └── online-retail-ii-cleaned.csv.zstd        # Cleaned dataset (hasil wrangling)
+│
+├── notebooks/
+│   └── code.ipynb                               # Notebook utama data wrangling
+│
+├── environment.yml                              # Environment dependencies (conda)
+├── README.md                                    # Dokumentasi project
+│
+└── .git/                                        # Git version control
 
-| Column | Description | Sample |
-|---|---|---|
-| **InvoiceID** | Nomor invoice untuk setiap transaksi. Umumnya berupa angka 6 digit unik dan dapat diawali huruf **“C”** yang menandakan transaksi pembatalan. Digunakan untuk mengidentifikasi dan mengelompokkan item dalam satu transaksi. | 536365 |
-| **StockCode** | Kode produk atau item yang mengidentifikasi setiap produk secara unik. Biasanya berupa angka 5 digit atau kombinasi alfanumerik yang merepresentasikan item tertentu. | 85123A |
-| **Description** | Nama atau deskripsi produk dalam bentuk teks yang menjelaskan item pada baris transaksi. Nilai dapat kosong pada beberapa kasus data. | WHITE HANGING HEART T-LIGHT HOLDER |
-| **Quantity** | Jumlah unit produk pada setiap baris transaksi dalam bentuk numerik. Nilai positif menunjukkan pembelian, sedangkan nilai negatif dapat mengindikasikan pengembalian atau pembatalan item. | 6 |
-| **InvoiceDate** | Tanggal dan waktu saat transaksi dibuat dalam format datetime. Kolom ini merepresentasikan waktu terjadinya transaksi. | 2010-12-01 08:26:00 |
-| **Price** | Harga per unit produk dalam bentuk numerik (float). Nilai ini merupakan harga item sebelum dikalikan dengan Quantity. | 2.55 |
-| **CustomerID** | Nomor pelanggan yang mengidentifikasi customer secara unik. Biasanya berupa angka 5 digit dan dapat bernilai kosong jika pelanggan tidak teridentifikasi. | 17850 |
-| **Country** | Nama negara tempat pelanggan berdomisili dalam bentuk kategorikal teks. Digunakan untuk menunjukkan lokasi pelanggan. | United Kingdom |
-| **IsGuest** | Flag boolean yang menunjukkan transaksi tanpa CustomerID. Nilai True menandakan pelanggan tidak teridentifikasi. | False |
-| **IsQuantityOutlier** | Flag boolean yang menandai apakah nilai Quantity terdeteksi sebagai outlier berdasarkan proses analisis data. | False |
-| **IsPriceOutlier** | Flag boolean yang menandai apakah nilai Price terdeteksi sebagai outlier berdasarkan proses analisis data. | False |
-| **Hour** | Jam transaksi dalam bentuk numerik yang diturunkan dari InvoiceDate. | 8 |
-| **Year** | Tahun transaksi dalam bentuk numerik yang diturunkan dari InvoiceDate. | 2010 |
-| **Month** | Bulan transaksi dalam bentuk numerik (1–12) yang diturunkan dari InvoiceDate. | 12 |
-| **Day** | Hari dalam bulan transaksi dalam bentuk numerik yang diturunkan dari InvoiceDate. | 1 |
-| **Week** | Minggu dalam tahun transaksi dalam bentuk numerik yang diturunkan dari InvoiceDate. | 48 |
-| **DayName** | Nama hari transaksi dalam bentuk teks yang diturunkan dari InvoiceDate. | Wednesday |
-| **MonthName** | Nama bulan transaksi dalam bentuk teks yang diturunkan dari InvoiceDate. | December |
-| **IsNegQty** | Flag boolean yang menunjukkan Quantity bernilai negatif. | False |
-| **IsNegPrice** | Flag boolean yang menunjukkan Price bernilai negatif. | False |
-| **IsCanceled** | Flag boolean yang menunjukkan transaksi pembatalan, umumnya berdasarkan InvoiceID yang diawali huruf “C”. | False |
-| **IsAdjusted** | Flag boolean yang menandakan baris transaksi merupakan hasil penyesuaian atau koreksi data. | False |
-| **TotalPrice** | Nilai total baris transaksi yang merupakan hasil perkalian Quantity dan Price. | 15.30 |
+## 📌 **Overview**
+
+Proyek ini merupakan studi kasus **data wrangling** pada dataset **Online Retail II** yang bertujuan mengubah data transaksi mentah menjadi dataset analitik yang bersih, terstruktur, dan reusable untuk berbagai proyek data-driven.
+
+Dataset awal mengandung berbagai permasalahan kualitas data seperti missing values, duplikasi, transaksi pembatalan, serta nilai ekstrem pada variabel numerik. Oleh karena itu, dilakukan serangkaian proses data wrangling untuk meningkatkan kualitas dan konsistensi dataset sebelum digunakan dalam analisis lanjutan.
+
+## 📦 **Dataset**
+
+Dataset yang digunakan adalah **Online Retail II** dari UCI Machine Learning Repository.
+
+👉 [https://archive.ics.uci.edu/dataset/502/online+retail+ii](https://archive.ics.uci.edu/dataset/502/online+retail+ii)
+
+Dataset ini berisi transaksi retail online dari perusahaan berbasis di Inggris pada periode **2009–2011** dengan lebih dari **1 juta transaksi**.
+
+## 🎯 **Tujuan Proyek**
+
+Proyek ini bertujuan untuk:
+
+* Mengidentifikasi permasalahan kualitas data pada dataset transaksi retail
+* Menerapkan tahapan data wrangling (discovering, structuring, cleaning, enriching, validating)
+* Menghasilkan dataset analitik yang bersih dan reusable untuk berbagai proyek data-driven
+
+## 🧠 **Apa itu Data Wrangling**
+
+Data wrangling merupakan proses pembersihan, penataan, dan pengayaan data mentah agar menjadi dataset yang bersih, konsisten, dan siap digunakan untuk analisis, visualisasi, maupun machine learning.
+
+Referensi:
+👉 [https://www.ibm.com/think/topics/data-wrangling](https://www.ibm.com/think/topics/data-wrangling)
+
+## ⚙️ **Tools & Libraries**
+
+* Python
+* Pandas
+* Seaborn
+* Matplotlib
+
+## 🔎 **Workflow Data Wrangling**
+
+### 1️⃣ Discovering
+
+* Dataset overview
+* Missing values analysis
+* Duplicate detection
+* Unique value exploration
+* Invoice anomaly detection
+* Outlier visualization
+
+### 2️⃣ Structuring
+
+* Rename columns
+* Type conversion
+* Memory optimization
+
+### 3️⃣ Cleaning
+
+* Remove duplicates
+* Fill missing Description
+* Handle missing CustomerID
+* Add guest indicator
+
+### 4️⃣ Enriching
+
+* Feature engineering berbasis waktu
+* Business flags (cancellation, adjustment, negative values)
+* TotalPrice calculation
+
+### 5️⃣ Validating
+
+* Recheck missing values
+* Outlier detection (IQR)
+* Final dataset verification
+
+## ✅ **Hasil Akhir**
+
+Dataset akhir:
+
+* 1.033.036 transaksi
+* 23 variabel
+* Tidak ada missing values
+* Struktur data konsisten
+* Feature bisnis & temporal lengkap
+
+Dataset disimpan dalam format:
+
+```bash
+online-retail-ii-cleaned.csv.zstd
+```
+
+## 📘 **Data Dictionary (Cleaned Dataset)**
+
+| Column                | Description                |
+| --------------------- | -------------------------- |
+| InvoiceID             | ID transaksi               |
+| StockCode             | Kode produk                |
+| Description           | Nama produk                |
+| Quantity              | Jumlah produk              |
+| InvoiceDate           | Tanggal transaksi          |
+| Price                 | Harga per unit             |
+| CustomerID            | ID pelanggan               |
+| Country               | Negara pelanggan           |
+| IsGuest               | Indikator pelanggan anonim |
+| Hour–MonthName        | Feature temporal           |
+| IsNegQty / IsNegPrice | Indikator nilai negatif    |
+| IsCanceled            | Indikator pembatalan       |
+| IsAdjusted            | Indikator penyesuaian      |
+| TotalPrice            | Nilai transaksi            |
+| IsQuantityOutlier     | Outlier Quantity           |
+| IsPriceOutlier        | Outlier Price              |
+
+# 🚀 **Future Proyeks**
+
+Dataset hasil wrangling ini dapat digunakan untuk:
+
+| Area                | Ide Proyek             |
+| ------------------- | ----------------------- |
+| Customer Analytics  | RFM Segmentation        |
+| Predictive Modeling | Sales Forecasting       |
+| Predictive Modeling | Regression Modeling     |
+| Customer Value      | Customer Lifetime Value |
+| Recommendation      | Product Recommendation  |
+| Market Basket       | Association Rules       |
+| Anomaly Detection   | Fraud detection         |
+| BI                  | Dashboard interaktif    |
+| Geospatial          | Country analysis        |
+
+## 📊 **Key Insight**
+
+Dataset hasil wrangling berfungsi sebagai:
+
+* Analytical dataset
+* Gold data layer
+* Foundation dataset untuk berbagai proyek data science
+
+## 📚 **References**
+
+* Chen, D. (2012). Online Retail II Dataset — UCI Machine Learning Repository
+* IBM Think — What is Data Wrangling
