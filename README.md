@@ -1,6 +1,6 @@
 # 🧹 Online Retail II Data Wrangling Case Study: From Messy Transactions to Data Gold
 
-## **Struktur Proyek**
+## Struktur Proyek
 
 ```
 online-retail-ii-wrangling-1/
@@ -17,13 +17,13 @@ online-retail-ii-wrangling-1/
 ├── README.md                                    # Dokumentasi project
 ```
 
-## **Overview**
+## Overview
 
 Proyek ini merupakan studi kasus **data wrangling** pada dataset **Online Retail II** yang bertujuan mengubah data transaksi mentah menjadi dataset analitik yang bersih, terstruktur, dan reusable untuk berbagai proyek data-driven.
 
 Dataset awal mengandung berbagai permasalahan kualitas data seperti missing values, duplikasi, transaksi pembatalan, serta nilai ekstrem pada variabel numerik. Oleh karena itu, dilakukan serangkaian proses data wrangling untuk meningkatkan kualitas dan konsistensi dataset sebelum digunakan dalam analisis lanjutan.
 
-## **Dataset**
+## Dataset
 
 Dataset yang digunakan adalah **Online Retail II** dari UCI Machine Learning Repository.
 
@@ -31,7 +31,7 @@ Dataset yang digunakan adalah **Online Retail II** dari UCI Machine Learning Rep
 
 Dataset ini berisi transaksi retail online dari perusahaan berbasis di Inggris pada periode **2009–2011** dengan lebih dari **1 juta transaksi**.
 
-## **Tujuan Proyek**
+## Tujuan Proyek
 
 Proyek ini bertujuan untuk:
 
@@ -39,21 +39,21 @@ Proyek ini bertujuan untuk:
 * Menerapkan tahapan data wrangling (discovering, structuring, cleaning, enriching, validating)
 * Menghasilkan dataset analitik yang bersih dan reusable untuk berbagai proyek data-driven
 
-## **Apa itu Data Wrangling**
+## Apa itu Data Wrangling
 
 Data wrangling merupakan proses pembersihan, penataan, dan pengayaan data mentah agar menjadi dataset yang bersih, konsisten, dan siap digunakan untuk analisis, visualisasi, maupun machine learning.
 
 Referensi:
 [https://www.ibm.com/think/topics/data-wrangling](https://www.ibm.com/think/topics/data-wrangling)
 
-## **Tools & Libraries**
+## Tools & Libraries
 
 * Python
 * Pandas
 * Seaborn
 * Matplotlib
 
-## **Workflow Data Wrangling**
+## Workflow Data Wrangling
 
 ### Discovering
 
@@ -89,7 +89,7 @@ Referensi:
 * Outlier detection (IQR)
 * Final dataset verification
 
-## **Hasil Akhir**
+## Hasil Akhir
 
 Dataset akhir:
 
@@ -105,7 +105,7 @@ Dataset disimpan dalam format:
 online-retail-ii-cleaned.csv.zstd
 ```
 
-## **Data Dictionary (Cleaned Dataset)**
+## Data Dictionary (Cleaned Dataset)
 
 | Column                | Description                |
 | --------------------- | -------------------------- |
@@ -126,7 +126,7 @@ online-retail-ii-cleaned.csv.zstd
 | IsQuantityOutlier     | Outlier Quantity           |
 | IsPriceOutlier        | Outlier Price              |
 
-# **Pengembangan Lebih Lanjut**
+# Pengembangan Lebih Lanjut
 
 Dataset hasil wrangling ini dapat digunakan untuk:
 
@@ -142,7 +142,7 @@ Dataset hasil wrangling ini dapat digunakan untuk:
 | BI                  | Dashboard interaktif    |
 | Geospatial          | Country analysis        |
 
-## **Key Insight**
+## Key Insight
 
 Dataset hasil wrangling berfungsi sebagai:
 
