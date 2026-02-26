@@ -1,64 +1,64 @@
 # 🧹 Online Retail II Data Wrangling Case Study: From Messy Transactions to Data Gold
 
-## Struktur Proyek
+## Project Structure
 
 ```
 online-retail-ii-wrangling-1/
 │
 ├── datasets/
-│   ├── online_retail_ii_2009-2010.csv.zstd      # Raw dataset (2009–2010)
-│   ├── online_retail_ii_2010-2011.csv.zstd      # Raw dataset (2010–2011)
-│   └── online-retail-ii-cleaned.csv.zstd        # Cleaned dataset (hasil wrangling)
+│ ├── online_retail_ii_2009-2010.csv.zstd # Raw dataset (2009–2010)
+│ ├── online_retail_ii_2010-2011.csv.zstd # Raw dataset (2010–2011)
+│ └── online-retail-ii-cleaned.csv.zstd # Cleaned dataset (wrangling results)
 │
 ├── notebooks/
-│   └── code.ipynb                               # Notebook utama data wrangling
+│ └── code.ipynb # Main data wrangling notebook
 │
-├── environment.yml                              # Environment dependencies (conda)
-├── README.md                                    # Dokumentasi project
+├── environment.yml # Environment dependencies (conda)
+├── README.md # Project documentation
 ```
 
 ## Overview
 
-Proyek ini merupakan studi kasus **data wrangling** pada dataset **Online Retail II** yang bertujuan mengubah data transaksi mentah menjadi dataset analitik yang bersih, terstruktur, dan reusable untuk berbagai proyek data-driven.
+This project is a data wrangling case study on the **Online Retail II** dataset. The goal is to transform raw transaction data into a clean, structured, and reusable analytical dataset for various data-driven projects.
 
-Dataset awal mengandung berbagai permasalahan kualitas data seperti missing values, duplikasi, transaksi pembatalan, serta nilai ekstrem pada variabel numerik. Oleh karena itu, dilakukan serangkaian proses data wrangling untuk meningkatkan kualitas dan konsistensi dataset sebelum digunakan dalam analisis lanjutan.
+The initial dataset contained various data quality issues such as missing values, duplication, canceled transactions, and extreme values ​​in numeric variables. Therefore, a series of data wrangling processes were performed to improve the quality and consistency of the dataset before it was used in further analysis.
 
 ## Dataset
 
-Dataset yang digunakan adalah **Online Retail II** dari UCI Machine Learning Repository.
+The dataset used is **Online Retail II** from the UCI Machine Learning Repository.
 
 [https://archive.ics.uci.edu/dataset/502/online+retail+ii](https://archive.ics.uci.edu/dataset/502/online+retail+ii)
 
-Dataset ini berisi transaksi retail online dari perusahaan berbasis di Inggris pada periode **2009–2011** dengan lebih dari **1 juta transaksi**.
+This dataset contains online retail transactions from a UK-based company from 2009–2011, with over 1 million transactions.
 
-## Tujuan Proyek
+## Project Objectives
 
-Proyek ini bertujuan untuk:
+This project aims to:
 
-* Mengidentifikasi permasalahan kualitas data pada dataset transaksi retail
-* Menerapkan tahapan data wrangling (discovering, structuring, cleaning, enriching, validating)
-* Menghasilkan dataset analitik yang bersih dan reusable untuk berbagai proyek data-driven
+* Identify data quality issues in retail transaction datasets
+* Implement data wrangling steps (discovering, structuring, cleaning, enriching, validating)
+* Produce a clean and reusable analytical dataset for various data-driven projects
 
-## Apa itu Data Wrangling
+## What is Data Wrangling
 
-Data wrangling merupakan proses pembersihan, penataan, dan pengayaan data mentah agar menjadi dataset yang bersih, konsisten, dan siap digunakan untuk analisis, visualisasi, maupun machine learning.
+Data wrangling is the process of cleaning, structuring, and enriching raw data to create a clean, consistent dataset ready for analysis, visualization, and machine learning.
 
-Referensi:
+Reference:
 [https://www.ibm.com/think/topics/data-wrangling](https://www.ibm.com/think/topics/data-wrangling)
 
 ## Tools & Libraries
 
 * Python
 * Pandas
-* Seaborn
+*Seaborn
 * Matplotlib
 
-## Workflow Data Wrangling
+## Data Wrangling Workflow
 
 ### Discovering
 
 * Dataset overview
-* Missing values analysis
+* Missing values ​​analysis
 * Duplicate detection
 * Unique value exploration
 * Invoice anomaly detection
@@ -73,13 +73,13 @@ Referensi:
 ### Cleaning
 
 * Remove duplicates
-* Fill missing Description
+* Fill in missing description
 * Handle missing CustomerID
-* Add guest indicator
+* Add guest indicators
 
 ### Enriching
 
-* Feature engineering berbasis waktu
+* Time-based feature engineering
 * Business flags (cancellation, adjustment, negative values)
 * TotalPrice calculation
 
@@ -87,19 +87,19 @@ Referensi:
 
 * Recheck missing values
 * Outlier detection (IQR)
-* Final dataset verification
+* Final dataset Verification
 
-## Hasil Akhir
+## Final Results
 
-Dataset akhir:
+Final dataset:
 
-* 1.033.036 transaksi
-* 23 variabel
-* Tidak ada missing values
-* Struktur data konsisten
-* Feature bisnis & temporal lengkap
+* 1,033,036 transactions
+* 23 variables
+* No missing values
+* Consistent data structure
+* Complete business and temporal features
 
-Dataset disimpan dalam format:
+The dataset is saved in the following format:
 
 ```bash
 online-retail-ii-cleaned.csv.zstd
@@ -107,45 +107,45 @@ online-retail-ii-cleaned.csv.zstd
 
 ## Data Dictionary (Cleaned Dataset)
 
-| Column                | Description                |
-| --------------------- | -------------------------- |
-| InvoiceID             | ID transaksi               |
-| StockCode             | Kode produk                |
-| Description           | Nama produk                |
-| Quantity              | Jumlah produk              |
-| InvoiceDate           | Tanggal transaksi          |
-| Price                 | Harga per unit             |
-| CustomerID            | ID pelanggan               |
-| Country               | Negara pelanggan           |
-| IsGuest               | Indikator pelanggan anonim |
-| Hour–MonthName        | Feature temporal           |
-| IsNegQty / IsNegPrice | Indikator nilai negatif    |
-| IsCanceled            | Indikator pembatalan       |
-| IsAdjusted            | Indikator penyesuaian      |
-| TotalPrice            | Nilai transaksi            |
-| IsQuantityOutlier     | Outlier Quantity           |
-| IsPriceOutlier        | Outlier Price              |
+| Column | Description |
+| --------------------- | ------------------------------------- |
+| InvoiceID | Transaction ID |
+| StockCode | Product Code |
+| Description | Product Name |
+| Quantity | Number of products |
+| InvoiceDate | Transaction Date |
+| Price | Price per unit |
+| CustomerID | Customer ID |
+| Country | Customer Country |
+| IsGuest | Anonymous Customer Indicator |
+| Hour–MonthName | Temporal Feature |
+| IsNegQty / IsNegPrice | Negative value indicator |
+| IsCanceled | Cancellation indicator |
+| IsAdjusted | Adjustment indicator |
+| TotalPrice | Transaction value |
+| IsQuantityOutlier | Outlier Quantity |
+| IsPriceOutlier | Outlier Price |
 
-# Pengembangan Lebih Lanjut
+# Further Development
 
-Dataset hasil wrangling ini dapat digunakan untuk:
+This wrangled dataset can be used for:
 
-| Area                | Ide Proyek             |
-| ------------------- | ----------------------- |
-| Customer Analytics  | RFM Segmentation        |
-| Predictive Modeling | Sales Forecasting       |
-| Predictive Modeling | Regression Modeling     |
-| Customer Value      | Customer Lifetime Value |
-| Recommendation      | Product Recommendation  |
-| Market Basket       | Association Rules       |
-| Anomaly Detection   | Fraud detection         |
-| BI                  | Dashboard interaktif    |
-| Geospatial          | Country analysis        |
+| Area | Project Ideas |
+| ------------------- | --------------------------------- |
+| Customer Analytics | RFM Segmentation |
+| Predictive Modeling | Sales Forecasting |
+| Predictive Modeling | Regression Modeling |
+| Customer Value | Customer Lifetime Value |
+| Recommendation | Product Recommendation |
+| Market Basket | Association Rules |
+| Anomaly Detection | Fraud Detection |
+| BI | Interactive Dashboard |
+| Geospatial | Country Analysis |
 
 ## Key Insight
 
-Dataset hasil wrangling berfungsi sebagai:
+The wrangled dataset serves as:
 
 * Analytical dataset
 * Gold data layer
-* Foundation dataset untuk berbagai proyek data science
+* Foundation dataset for various data science projects
